@@ -30,10 +30,12 @@ Then help them based on what they say. You can help with anything in the system,
 
 Walk them through the setup checklist from README.md. Read it and go through each item conversationally:
 
-1. **Do you have Claude Code installed?** If not, walk them through installing the VS Code extension.
-2. **Do you have your API keys?** If not, guide them to create accounts at Anthropic and Instantly, then set up `.env`.
-3. **Do you have your strategy document?** If not, tell them this comes from their strategy call with Josh and should be saved in `strategy/`.
-4. **Do you have your CLAUDE.md?** If not, explain what it is (your business brain -- everything Claude needs to know about your business, offer, voice, and ICP) and that Josh will help them create it.
+1. **Do you have Antigravity installed?** If not, direct them to antigravity.google/download.
+2. **Do you have your business folder set up?** They should have a main folder named after their business, with a Business Docs subfolder inside it. The modern-founder-skills repo should be cloned inside this business folder.
+3. **Did you run the setup script?** After cloning, they need to run `setup.bat` (Windows) or `bash setup.sh` (Mac) from inside the modern-founder-skills folder. This copies the skills to the parent business folder so they work when opening the business folder in Antigravity.
+4. **Do you have your API keys?** If not, guide them to create accounts at Anthropic and Instantly, then set up `.env` inside the modern-founder-skills folder.
+5. **Do you have your strategy document?** If not, tell them this comes from their strategy call with Josh and should be saved in `modern-founder-skills/strategy/`.
+6. **Do you have your CLAUDE.md?** If not, explain what it is (your business brain -- everything Claude needs to know about your business, offer, voice, and ICP) and that Josh will help them create it. It lives in the business folder root (the parent of modern-founder-skills).
 
 Once setup is done, ask: "Are you sourcing leads with a Company Search or a People Search in Clay?" If company search, tell them: "Start with `/prompt-adapter` on prompt 01 -- Company & Founder Research." If people search: "Start with `/prompt-adapter` on prompt 01b -- Company Research for People Search." Everything else builds on that first prompt.
 
@@ -137,7 +139,7 @@ Open Instantly. Find your campaign. Review the sequences (check the copy looks r
 Think of it like version control for your files. Every time Josh updates the prompts or skills, you can get those updates with one command instead of re-downloading everything.
 
 **"How do I get updates?"**
-Open a terminal in VS Code (Terminal > New Terminal). Type `git pull` and press Enter. That is it. You will see a list of files that were updated.
+Open a terminal in Antigravity (Terminal > New Terminal). Navigate to the modern-founder-skills folder: `cd modern-founder-skills`. Type `git pull` and press Enter. Then run the setup script again to copy updated skills to your business folder: `setup.bat` on Windows or `bash setup.sh` on Mac. Two steps every time: pull, then setup.
 
 **"git pull says there are conflicts"**
 This means you edited a file that Josh also updated. The safest fix:

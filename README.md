@@ -6,37 +6,54 @@ Your AI-powered campaign system. 3 Clay prompts that find, score, and research y
 
 ## Installation
 
-### 1. Install Git
+### 1. Create Your Business Folder
 
-If you don't have Git installed yet:
+Create a folder named after your business (e.g. `MyBusiness`) in your Documents. Inside it, create a `Business Docs` folder for your knowledge base and other files.
+
+### 2. Install Git
 
 **Windows:** Download from [git-scm.com/download/win](https://git-scm.com/download/win) and run the installer. Accept all defaults.
 
 **Mac:** Open Terminal and run `xcode-select --install`, then follow the prompts.
 
-To check it worked, open a terminal and run:
-```
-git --version
-```
-You should see a version number. If you do, you're good.
+### 3. Clone the Repository
 
-### 2. Clone the Repository
-
-Open a terminal (or the VS Code terminal) and run:
+Open a terminal in Antigravity, navigate to your business folder, and clone:
 ```
+cd ~/Documents/MyBusiness
 git clone https://github.com/SidebySideSystems/modern-founder-skills.git
 ```
 
-This downloads the entire project to your computer. Open the folder in VS Code.
+### 4. Run the Setup Script
 
-### 3. Get Updates
+This copies the skills to your business folder so they work when you open it in Antigravity:
 
-When Josh pushes updates (new prompts, improved rules, bug fixes), you get them with one command:
+**Windows:** Double-click `modern-founder-skills/setup.bat`
+
+**Mac/Linux:** Run `bash modern-founder-skills/setup.sh`
+
+Your folder will look like this:
 ```
+MyBusiness/
+  .claude/skills/           <-- copied here by setup script
+  CLAUDE.md                 <-- your business brain (Josh helps you create this)
+  Business Docs/
+  modern-founder-skills/    <-- the repo lives here
+```
+
+### 5. Get Updates
+
+When Josh pushes updates (new prompts, improved skills, bug fixes):
+```
+cd modern-founder-skills
 git pull
 ```
 
-Run this from inside the project folder. That's it. No re-downloading, no version confusion.
+Then run the setup script again to copy the updated skills to your business folder:
+
+**Windows:** Double-click `setup.bat`
+
+**Mac/Linux:** Run `bash setup.sh`
 
 ---
 
