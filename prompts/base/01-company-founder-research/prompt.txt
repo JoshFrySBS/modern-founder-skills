@@ -30,10 +30,9 @@ Method:
    b. Personal LinkedIn URL
    c. **Employment check:** Look at their Experience section. Are they CURRENTLY employed elsewhere (university, corporate role, another company) alongside this consultancy? If yes, flag it clearly. A consultancy that is a side project alongside full-time employment is fundamentally different from a full-time independent practice.
    d. **Years independent:** When did they start this business? Calculate years from the start date in their Experience section.
-   e. **Content activity:** How often do they post on LinkedIn? Check their recent posts. Classify as: "daily" (posts every day or near-daily), "active" (weekly+), "sporadic" (few times a month), "minimal" (rarely), "none" (no posts visible).
-   f. **Audience size:** Follower count if visible. Classify as: "large" (10k+), "medium" (2k-10k), "small" (500-2k), "minimal" (under 500).
-   g. **Is the profile real?** Check for: no photo, under 50 connections, no activity, generic headline, no work history. If fake indicators found, flag it.
-   h. Whether they are currently active at this company (is it their current role in Experience?)
+   e. **Audience size:** Follower count if visible. Classify as: "large" (10k+), "medium" (2k-10k), "small" (500-2k), "minimal" (under 500).
+   f. **Is the profile real?** Check for: no photo, under 50 connections, no activity, generic headline, no work history. If fake indicators found, flag it.
+   g. Whether they are currently active at this company (is it their current role in Experience?)
 
 5. FROM THE WEBSITE AND COMPANY LINKEDIN, capture:
    a. Core value proposition (1-2 sentences)
@@ -91,7 +90,6 @@ FOUNDER FIELDS:
 - is_employed_elsewhere: boolean — do they have a concurrent full-time role at another organisation? Check Experience section carefully. If they are a professor, corporate employee, or hold another full-time position alongside this consultancy, set to true.
 - employer_if_elsewhere: name of the other employer if is_employed_elsewhere is true, otherwise null
 - years_independent: numeric — years since they started this practice
-- content_activity: "daily", "active", "sporadic", "minimal", "none"
 - audience_size: "large", "medium", "small", "minimal"
 - is_fake: boolean — does the profile show fake indicators?
 - confidence: "high", "medium", "low"

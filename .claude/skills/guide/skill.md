@@ -35,7 +35,7 @@ Walk them through the setup checklist from README.md. Read it and go through eac
 3. **Do you have your strategy document?** If not, tell them this comes from their strategy call with Josh and should be saved in `strategy/`.
 4. **Do you have your CLAUDE.md?** If not, explain what it is (your business brain -- everything Claude needs to know about your business, offer, voice, and ICP) and that Josh will help them create it.
 
-Once setup is done, tell them: "Start with `/prompt-adapter` on the first prompt -- Company & Founder Research. Everything else builds on that."
+Once setup is done, ask: "Are you sourcing leads with a Company Search or a People Search in Clay?" If company search, tell them: "Start with `/prompt-adapter` on prompt 01 -- Company & Founder Research." If people search: "Start with `/prompt-adapter` on prompt 01b -- Company Research for People Search." Everything else builds on that first prompt.
 
 ---
 
@@ -90,11 +90,14 @@ Walk them through:
 Common Clay questions:
 
 **"Where do I paste the prompt?"**
-In your Clay table, add a new column. Choose "Claygent" (for prompts 01 and 03) or "Use AI" (for prompt 02). The prompt goes in the prompt field. The schema goes in the output schema field. These are ALWAYS separate -- never paste the schema inside the prompt.
+In your Clay table, add a new column. Choose "Claygent" (for prompts 01, 01b, 03, 03b) or "Use AI" (for prompt 02). The prompt goes in the prompt field. The schema goes in the output schema field. These are ALWAYS separate -- never paste the schema inside the prompt.
 
 **"What model do I use?"**
-- Prompts 01 and 03 (Claygent): Argon. This is Clay's built-in web browsing model.
+- Prompts 01, 01b, 03, 03b (Claygent): Argon. This is Clay's built-in web browsing model.
 - Prompt 02 (Use AI): Claude Sonnet via BYOK (Bring Your Own Key). You will need your Anthropic API key added to Clay settings.
+
+**"Which prompts do I use — 01/03 or 01b/03b?"**
+It depends on how you sourced your leads. If you used a **Company Search** (you have company domains), use 01, 02, 03. If you used a **People Search** (you already have the person's LinkedIn), use 01b, 02, 03b. Prompt 02 (ICP Fit Score) is the same for both.
 
 **"How do I set up the filter?"**
 After the ICP Fit Score column (prompt 02), add a filter: `fit_score >= 50`. This stops bad leads from going through the expensive research steps. Read `reference/credit-gating.md` for the full explanation of why this saves money.

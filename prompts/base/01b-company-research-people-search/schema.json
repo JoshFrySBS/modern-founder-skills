@@ -55,24 +55,6 @@
     "notes": {
       "anyOf": [{ "type": "string" }, { "type": "null" }]
     },
-    "founder_name": {
-      "anyOf": [{ "type": "string" }, { "type": "null" }]
-    },
-    "founder_linkedin_url": {
-      "anyOf": [{ "type": "string" }, { "type": "null" }]
-    },
-    "founder_title": {
-      "anyOf": [{ "type": "string" }, { "type": "null" }]
-    },
-    "seniority_level": {
-      "anyOf": [
-        { "type": "string", "enum": ["founder", "owner", "c-level", "director", "partner"] },
-        { "type": "null" }
-      ]
-    },
-    "location": {
-      "anyOf": [{ "type": "string" }, { "type": "null" }]
-    },
     "is_current": {
       "anyOf": [{ "type": "boolean" }, { "type": "null" }]
     },
@@ -99,22 +81,15 @@
         { "type": "string", "enum": ["high", "medium", "low"] },
         { "type": "null" }
       ]
-    },
-    "found_via": {
-      "anyOf": [
-        { "type": "string", "enum": ["linkedin", "website", "google"] },
-        { "type": "null" }
-      ]
     }
   },
   "required": [
     "value_proposition", "services", "industry_vertical", "is_b2b", "sells_expertise",
     "employee_count_estimate", "revenue_signals", "years_in_business", "client_types",
     "founder_led", "business_type", "deal_size", "lead_gen_visible", "notes",
-    "founder_name", "founder_linkedin_url", "founder_title", "seniority_level",
-    "location", "is_current", "is_employed_elsewhere", "employer_if_elsewhere",
+    "is_current", "is_employed_elsewhere", "employer_if_elsewhere",
     "years_independent", "audience_size", "is_fake",
-    "confidence", "found_via"
+    "confidence"
   ],
   "additionalProperties": false
 }

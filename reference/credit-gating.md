@@ -6,47 +6,61 @@ The Clay pipeline uses a scoring filter to make sure you never waste credits on 
 
 ## How It Works
 
+There are two pipelines depending on how you source leads. Both use the same credit gating logic.
+
+### Company Pipeline (01, 02, 03)
+
 ```
-Source leads (from Clay, LinkedIn, Apollo, etc.)
+Source companies (from Clay Company Search, LinkedIn, Apollo, etc.)
     ↓
-[01] Company Research (3 credits/row) — profiles every company + generates copy variables
+[01] Company & Founder Research (3 credits/row) — profiles company + finds decision maker
     ↓
 [02] ICP Fit Score (0 credits, BYOK) — scores how well they match your ICP
     ↓
 ★ FILTER: fit_score below 50 → STOP HERE
-   These leads never get enriched. You save credits on every bad fit.
     ↓
-[03] Decision Maker (3 credits/row) — finds the right person to contact
+[03] Intent & Angle Research (3 credits/row) — researches angles, personalisation hooks, intent
     ↓
-[04] Intent & Angle Research (3 credits/row) — researches angles, personalisation hooks, intent
-    ↓
-Find Email (0 Clay credits, own API key) — gets verified email
-    ↓
-Export → Campaign Builder in Claude Code
+Find Email (0 Clay credits, own API key) → Export → Campaign Builder
 ```
 
-The key insight: **bad fits get filtered out before the expensive research steps**. You only spend credits on decision maker finding and intent research for companies worth emailing.
+### People Pipeline (01b, 02, 03b)
+
+```
+Source people (from Clay People Search — you already have the person's LinkedIn)
+    ↓
+[01b] Company Research (3 credits/row) — profiles company + verifies known contact
+    ↓
+[02] ICP Fit Score (0 credits, BYOK) — same scoring prompt as company pipeline
+    ↓
+★ FILTER: fit_score below 50 → STOP HERE
+    ↓
+[03b] Intent & Angle Research (3 credits/row) — same output, takes person LinkedIn directly
+    ↓
+Find Email (0 Clay credits, own API key) → Export → Campaign Builder
+```
+
+The key insight is the same for both: **bad fits get filtered out before the expensive research steps**.
 
 ---
 
 ## The Numbers
 
-For every 1,000 leads you source:
+For every 1,000 leads you source (same for both pipelines):
 
 | Step | Leads | Credits/lead | Total credits |
 |------|-------|-------------|---------------|
-| Company Research | 1,000 | 3 | 3,000 |
-| ICP Fit Score | 1,000 | 0 (BYOK) | 0 |
+| Company Research (01 or 01b) | 1,000 | 3 | 3,000 |
+| ICP Fit Score (02) | 1,000 | 0 (BYOK) | 0 |
 | **Filter: 50+ only** | **~600 pass** | — | — |
-| Decision Maker | 600 | 3 | 1,800 |
-| Intent & Angle Research | 600 | 3 | 1,800 |
+| Intent & Angle Research (03 or 03b) | 600 | 3 | 1,800 |
 | Find Email | ~420 | 0 (own API) | 0 |
 
-**With gating: ~6,600 credits per 1,000 leads** (6.6 credits/lead average)
+**With gating: ~4,800 credits per 1,000 leads** (4.8 credits/lead average)
 
-**Without gating:** every lead gets every enrichment = ~9,000 credits per 1,000 leads
+**Without gating:** every lead gets every enrichment = ~6,000 credits per 1,000 leads
 
-**Savings: ~27%** — and the savings increase as your ICP scoring gets more precise.
+**Savings: ~20%** — and the savings increase as your ICP scoring gets more precise.
 
 ---
 
@@ -56,7 +70,7 @@ After ICP Fit Scoring, only leads with a **fit_score of 50 or above** proceed to
 
 | Tier | Score | What happens |
 |------|-------|-------------|
-| **Priority** | 70+ | Best fits. Get full research (decision maker + intent + angles). Hyper-personalised campaigns. |
+| **Priority** | 70+ | Best fits. Get full intent and angle research. Hyper-personalised campaigns. |
 | **Prospect** | 50-69 | Worth reaching out. Get full research. Lighter personalisation in campaigns. |
 | **Pass** | Below 50 | Not a fit. Pipeline stops here. No credits wasted on research. |
 

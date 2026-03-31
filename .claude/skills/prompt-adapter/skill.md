@@ -14,13 +14,19 @@ You adapt Clay prompts to a student's specific business and guide them through t
 
 ### Step 1: Choose a Prompt
 
-Ask the student which prompt they want to adapt:
+Ask the student which prompt they want to adapt. First ask: are you using a **Company Search** or **People Search** in Clay? This determines which prompts to use.
 
+**Company Pipeline (company search — you have company domains):**
 1. **01 — Company & Founder Research** (Claygent, 3 credits/row) — profiles companies AND finds the founder/decision maker
 2. **02 — ICP Fit Score** (Use AI, 0 credits) — scores how well each lead matches their ideal client (7 dimensions)
 3. **03 — Intent & Angle Research** (Claygent, 3 credits/row) — finds the best approach angle and generates copy variables
 
-If this is their first time, recommend starting with **01 — Company & Founder Research**. Everything downstream depends on good research data.
+**People Pipeline (people search — you already have the person's LinkedIn):**
+1. **01b — Company Research, People Search** (Claygent, 3 credits/row) — profiles the company and verifies the known contact
+2. **02 — ICP Fit Score** (Use AI, 0 credits) — same prompt for both pipelines
+3. **03b — Intent & Angle Research, People Search** (Claygent, 3 credits/row) — same output as 03 but takes the person's LinkedIn directly
+
+If this is their first time, recommend starting with **01 or 01b** depending on their source. Everything downstream depends on good research data.
 
 ### Step 2: Read the Source Material
 
@@ -85,11 +91,15 @@ Rewrite the business-specific parts of the base prompt while preserving the prov
 
 **Adaptation depth by prompt type:**
 
-- **01 — Company & Founder Research:** Moderate-heavy. Adapt what data points to extract about the company, what "sells expertise" means in their market, business type categories, deal size definitions, and the founder search criteria (target roles, seniority levels). This prompt now combines company profiling AND founder/decision maker discovery in one step.
+- **01 — Company & Founder Research (Company Pipeline):** Moderate-heavy. Adapt what data points to extract about the company, what "sells expertise" means in their market, business type categories, deal size definitions, and the founder search criteria (target roles, seniority levels). This prompt combines company profiling AND founder/decision maker discovery in one step.
 
-- **02 — ICP Fit Score:** HEAVIEST adaptation. All 7 scoring dimensions need rewriting: founder fit, service fit, independence, growth stage, outbound need, deal readiness, founder quality. Also adapt the automatic pass rules (what counts as a competitor, what disqualifies). This is the most important prompt to get right because it is the gatekeeper -- everything downstream depends on good scoring.
+- **01b — Company Research, People Search (People Pipeline):** Moderate. Same company research as 01 but without the founder discovery section. Adapt business type categories, deal size definitions, and what "sells expertise" means. Lighter adaptation because no founder search criteria to configure.
 
-- **03 — Intent & Angle Research:** Moderate. Adapt the 7 strategic angles to match their market, the copy variable definitions (copy_expertise, copy_client_descriptor, copy_business_descriptor, copy_hook, personalised_line), and the intent scoring criteria. The copy variables are critical -- these flow directly into email templates.
+- **02 — ICP Fit Score (Both Pipelines):** HEAVIEST adaptation. All 7 scoring dimensions need rewriting: founder fit, service fit, independence, growth stage, outbound need, deal readiness, founder quality. Also adapt the automatic pass rules (what counts as a competitor, what disqualifies). This is the most important prompt to get right because it is the gatekeeper -- everything downstream depends on good scoring.
+
+- **03 — Intent & Angle Research (Company Pipeline):** Moderate. Adapt the 7 strategic angles to match their market, the copy variable definitions (copy_expertise, copy_client_descriptor, copy_business_descriptor, copy_hook, personalised_line), and the intent scoring criteria. The copy variables are critical -- these flow directly into email templates.
+
+- **03b — Intent & Angle Research, People Search (People Pipeline):** Same adaptation as 03 but uses /Person LinkedIn URL instead of /Founder LinkedIn URL and does not reference Company LinkedIn URL.
 
 ### Step 5: Output the Adapted Prompt
 
