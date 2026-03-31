@@ -1,0 +1,29 @@
+# Environment variables (real keys)
+.env
+
+# Student working directories
+campaigns/drafts/
+campaigns/approved/
+clay-exports/*.csv
+clay-exports/*.json
+prompts/adapted/
+
+# Strategy docs (confidential)
+strategy/*.md
+strategy/*.pdf
+
+# OS and editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Node (if students run scripts)
+node_modules/
+*.log
+
+# Claude Code local state
+.claude/projects/
+
+# Keep folder structure
+!**/.gitkeep
