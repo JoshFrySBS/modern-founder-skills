@@ -18,24 +18,24 @@ Create a folder named after your business (e.g. `MyBusiness`) in your Documents.
 
 ### 3. Clone the Repository
 
-Open a terminal in Antigravity, navigate to your business folder, and clone:
+Open your business folder in Antigravity (File > Open Folder), then open the terminal (Terminal > New Terminal) and clone:
 ```
-cd ~/Documents/MyBusiness
-git clone https://github.com/SidebySideSystems/modern-founder-skills.git
+git clone https://github.com/JoshFrySBS/modern-founder-skills.git
 ```
 
-### 4. Run the Setup Script
+No GitHub account needed. The repo is public.
 
-This copies the skills to your business folder so they work when you open it in Antigravity:
+### 4. Install Your Skills
 
-**Windows:** Double-click `modern-founder-skills/setup.bat`
-
-**Mac/Linux:** Run `bash modern-founder-skills/setup.sh`
+Open Claude Code and ask it:
+```
+Copy the skills from modern-founder-skills into my .claude folder
+```
 
 Your folder will look like this:
 ```
 MyBusiness/
-  .claude/skills/           <-- copied here by setup script
+  .claude/skills/           <-- Claude copies these here for you
   CLAUDE.md                 <-- your business brain (Josh helps you create this)
   Business Docs/
   modern-founder-skills/    <-- the repo lives here
@@ -49,11 +49,10 @@ cd modern-founder-skills
 git pull
 ```
 
-Then run the setup script again to copy the updated skills to your business folder:
-
-**Windows:** Double-click `setup.bat`
-
-**Mac/Linux:** Run `bash setup.sh`
+Then ask Claude to copy the updated skills:
+```
+Copy the updated skills from modern-founder-skills into my .claude folder
+```
 
 ---
 
