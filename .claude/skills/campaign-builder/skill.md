@@ -405,6 +405,14 @@ Body:
 Save the returned campaign ID.
 
 **Add sequences and sending accounts:**
+
+**CRITICAL: Email body formatting.** Instantly renders plain text. To get visible spacing between paragraphs, you MUST insert `\n\n` (two newlines) between each paragraph in the JSON body string. A single `\n` creates a line break but no visible gap. Every paragraph must be separated by `\n\n` so the email doesn't arrive as a wall of text.
+
+Example body format in JSON:
+```
+"body": "{{Hi|Hey}} {{firstName}},\n\n[First paragraph with spintax...]\n\n[Second paragraph...]\n\n[Third paragraph...]\n\n[Sign off]"
+```
+
 ```
 PATCH https://api.instantly.ai/api/v2/campaigns/{campaign_id}
 Headers:
@@ -415,9 +423,9 @@ Body:
   "email_list": ["[sending account emails - fetch from GET /api/v2/accounts first]"],
   "sequences": [{
     "steps": [
-      {"type": "email", "delay": 0, "variants": [{"subject": "[subject A]", "body": "[email 1 body]"}, {"subject": "[subject B]", "body": "[email 1 body]"}, {"subject": "[subject C]", "body": "[email 1 body]"}]},
-      {"type": "email", "delay": 3, "variants": [{"subject": "re: {{subject}}", "body": "[email 2 body]"}]},
-      {"type": "email", "delay": 5, "variants": [{"subject": "re: {{subject}}", "body": "[email 3 body]"}]}
+      {"type": "email", "delay": 0, "variants": [{"subject": "[subject A]", "body": "[email 1 body with \\n\\n between paragraphs]"}, {"subject": "[subject B]", "body": "[email 1 body]"}, {"subject": "[subject C]", "body": "[email 1 body]"}]},
+      {"type": "email", "delay": 3, "variants": [{"subject": "re: {{subject}}", "body": "[email 2 body with \\n\\n between paragraphs]"}]},
+      {"type": "email", "delay": 5, "variants": [{"subject": "re: {{subject}}", "body": "[email 3 body with \\n\\n between paragraphs]"}]}
     ]
   }]
 }
