@@ -1,14 +1,16 @@
 # Environment variables (real keys)
 .env
 
-# Student working directories (ignore contents, keep folders)
-campaigns/drafts/*
-campaigns/approved/*
+# Student working files (their adapted prompts, exports, campaigns, strategy docs)
+# These are personal to each student and should not be pushed back
+prompts/adapted/**/*.txt
+prompts/adapted/**/*.json
+campaigns/drafts/**/*.md
+campaigns/drafts/**/*.csv
+campaigns/approved/**/*.md
+campaigns/approved/**/*.csv
 clay-exports/*.csv
 clay-exports/*.json
-prompts/adapted/*
-
-# Strategy docs (confidential)
 strategy/*.md
 strategy/*.pdf
 
