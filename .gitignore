@@ -1,8 +1,8 @@
 # Environment variables (real keys)
 .env
 
-# Google OAuth credentials and tokens (share-doc)
-google-client-credentials.json
+# Google OAuth tokens (share-doc) — personal to each student
+# NOTE: google-client-credentials.json is deliberately IN the repo (it's safe, not secret)
 .google-token.json
 
 # Student working files (their adapted prompts, exports, campaigns, strategy docs)

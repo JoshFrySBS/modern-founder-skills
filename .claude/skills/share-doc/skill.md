@@ -43,7 +43,7 @@ node Automation/share-doc/share.js "<file-path>" --folder "<folder-id>"
 
 If the script reports missing credentials or auth errors, guide the user through setup:
 
-1. **Missing `google-client-credentials.json`**: "Download the Google credentials file from the course materials and save it in your project root folder (next to your .env file). See `Automation/share-doc/SETUP.md` Step 3."
+1. **Missing `google-client-credentials.json`**: "The credentials file should already be in your project. Run `git pull` to get the latest version. See `Automation/share-doc/SETUP.md` Step 3."
 
 2. **No Google account connected**: "Run `node Automation/share-doc/share.js --setup` to connect your Google account. Your browser will open and you will sign in once. After that it works automatically."
 

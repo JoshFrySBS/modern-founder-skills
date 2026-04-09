@@ -61,22 +61,20 @@ You should see some text scroll by and then it finishes. That is it.
 
 ---
 
-## Step 3: Save the Google credentials file
+## Step 3: Check the Google credentials file
 
-Josh has provided a file called `google-client-credentials.json` in the course materials.
-
-1. Download that file
-2. Move it into the **main folder** of your project (the top-level folder, not inside any subfolder)
-3. Double check: you should see `google-client-credentials.json` sitting right next to your `.env` file
+The file `google-client-credentials.json` is already included in your project. You should see it in your main project folder (next to your `.env` file).
 
 ```
 your-project/
   .env                              <-- you already have this
-  google-client-credentials.json    <-- put it here
+  google-client-credentials.json    <-- already here
   Automation/
   campaigns/
   ...
 ```
+
+If for some reason it is not there, run `git pull` to get the latest version of the project.
 
 ---
 
@@ -173,10 +171,10 @@ Open that link in your browser. You should see your README as a formatted Google
 
 ### "Google client credentials not found"
 
-The script cannot find the `google-client-credentials.json` file. Make sure:
-- You downloaded it from the course materials
-- You put it in your **project root folder** (next to your `.env` file)
-- The filename is exactly `google-client-credentials.json`
+The script cannot find the `google-client-credentials.json` file. Try:
+- Run `git pull` to get the latest version of the project
+- Check that `google-client-credentials.json` is in your **project root folder** (next to your `.env` file)
+- Make sure the filename is exactly `google-client-credentials.json`
 
 ### "Pandoc is not installed" or "pandoc not found"
 
