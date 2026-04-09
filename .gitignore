@@ -1,6 +1,10 @@
 # Environment variables (real keys)
 .env
 
+# Google OAuth credentials and tokens (share-doc)
+google-client-credentials.json
+.google-token.json
+
 # Student working files (their adapted prompts, exports, campaigns, strategy docs)
 # These are personal to each student and should not be pushed back
 prompts/adapted/**/*.txt
