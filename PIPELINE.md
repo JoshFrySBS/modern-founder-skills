@@ -105,9 +105,37 @@ The ICP Fit Score (Prompt 02) is the gatekeeper in both pipelines. Only leads sc
 
 See `reference/credit-gating.md` for the full breakdown and savings math.
 
+## Alternative Prompts
+
+These additional prompts can be mixed into either pipeline depending on what you need:
+
+### 01c -- Company Research (No Decision Maker)
+
+Researches the company only. Does not search for the founder or decision maker. Use this when you plan to find the decision maker separately (Apollo, Clay Find People, manual research, or other enrichment tools).
+
+Same output as 01 but without the founder fields. Faster, fewer page visits.
+
+### 01d -- Company Research + Intent
+
+Merged company research AND buying intent assessment in a single pass. Produces everything 01c does plus timing triggers, pain signals, growth signals, a why_now summary, and an intent strength classification.
+
+Use this when you want to skip the separate Intent & Angle Research step (03). The intent data is built into the research, so you go straight from 01d to 02 (ICP scoring) and then to email enrichment.
+
+Works for both company search and people search since it does not require a founder LinkedIn URL as input.
+
+### Finding Decision Makers Separately
+
+When using 01c or 01d (which skip founder finding), you can find the decision maker through:
+- **Clay Find People** -- search by company and role
+- **Apollo** -- if you have a subscription, search by company domain and title
+- **LinkedIn Sales Navigator** -- manual search
+- Other enrichment tools as they become available
+
+This section will expand as new methods are tested and documented.
+
 ## How to Use This Pipeline
 
-1. **Choose your pipeline** -- Company search? Use 01, 02, 03. People search? Use 01b, 02, 03b.
+1. **Choose your pipeline** -- Company search? Use 01, 02, 03. People search? Use 01b, 02, 03b. Want research + intent in one pass? Use 01d, 02.
 2. **Adapt each prompt** -- Run `/prompt-adapter` on each prompt to personalise them to your business
 3. **Set up Clay table** -- Create columns for each prompt in order, with a filter at the 50+ gate after ICP scoring
 4. **Source leads** -- Add leads from Clay's sourcing tools, LinkedIn, Apollo, or any database

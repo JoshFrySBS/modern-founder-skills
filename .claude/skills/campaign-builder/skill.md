@@ -78,28 +78,51 @@ The ANGLE and 4Ps methods below are frameworks to guide structure, NOT rigid tem
 3. Write the email around THAT, not around a formula
 4. Check it against the rules (word count, tone, CTAs) after writing, not before
 
-### Reference Methods (use as guides, not gospel)
+### Pain-Led Writing
 
-**ANGLE Method** -- Good starting structure when you have specific trigger data (hiring signals, recent changes, expansion, funding):
+Use the ANGLE approach (when you have a timing trigger) or the 4Ps approach (when leading with inference) as principles, not rigid templates. Both approaches share the same goal: make the email 80% about the reader and their situation, 20% about the sender and the solution.
 
-| Step | What it does |
-|------|-------------|
-| **A -- Attention** | Relevant hook explaining why you are reaching out NOW. Reference a specific trigger. |
-| **N -- Need** | The priority this creates. Prove you did homework. |
-| **G -- Gain** | Common pain related to that need. Quantify the cost of inaction. |
-| **L -- Leverage** | Social proof. One relevant result. |
-| **E -- Exchange** | Brief solution + soft CTA. |
+The email should dig into their pain, show you understand their world, and subtly position the sender as someone who solves that problem. The reader should feel understood, not pitched.
 
-**4Ps Method** -- Good starting structure when leading with inference about their situation:
+Write the email first, check it against the rules second. The only non-negotiable rules are: under 90 words, soft CTAs, hedge language, and it must feel like a human wrote it.
 
-| Step | What it does |
-|------|-------------|
-| **P -- Person** | Show you understand them from observable facts. Infer, never state. |
-| **P -- Pain** | The right problem, framed as a priority. |
-| **P -- Prescription** | One short line about what you help with. |
-| **P -- Proof & Promise** | One relevant example + soft CTA. |
+### No Technical Details in Emails
 
-You can mix elements from both methods, skip steps that don't serve the email, or structure the email differently if the research data calls for it. The only non-negotiable rules are: under 90 words, soft CTAs, hedge language, and it must feel like a human wrote it.
+NEVER name specific tools (Clay, Instantly, HeyReach, Lemlist, etc.) in outreach emails. NEVER describe the build process, list features, or explain how the system works. These are implementation details for a call, not a cold email. Instead, describe outcomes in plain language: "a system that fills your pipeline", "qualified conversations every week without the manual work."
+
+### Honesty Rules
+
+NEVER claim experience with an industry the sender has not worked in. "Most recruitment firms I work with" is a lie if there are no recruitment clients. Use general framing instead: "most businesses your size", "teams I've worked with."
+
+NEVER imply the sender has dozens of clients. If they have 2-3 proof points, use them honestly. Lean on pain and insight instead of fabricated credibility.
+
+### Banned Openers
+
+NEVER start an email with any variation of: "Saw...", "Noticed...", "Came across...", "Found your profile...", "Checked out your site...", or any sentence that tells the reader how you found them. These are generic, overused, and instantly signal cold email.
+
+Lead with the INSIGHT, not the discovery. Jump straight into what you know about their situation.
+
+- Bad: "Came across {{companyName}}. Looks like you do great work."
+- Good: "Premium creative work for businesses. I imagine with that level of service you only need a couple of projects to have a great quarter."
+
+### Temporal Accuracy
+
+Research data contains events and signals but not always dates. Before referencing any event:
+- Mergers, acquisitions, funding rounds: frame as completed events ("since bringing in [company]" not "now that you're merging")
+- Job postings: may be filled by the time the email sends. Use broader framing ("scaling the team" not "you're currently hiring a BDR")
+- Growth signals and awards: reference as achievements, not events in progress
+- General rule: if you are not certain something is happening RIGHT NOW, frame it as something that HAS happened or IS GENERALLY TRUE
+- NEVER fabricate a timeline
+
+### Proof Point Re-engineering
+
+The student's proof points from their strategy doc may not perfectly match every lead's situation. Your job is to RE-ENGINEER the framing so the reader sees themselves in the result.
+
+Rules:
+- Reshape the context around the proof to mirror the reader's situation. If the proof came from a solo founder but you are writing to a company with a sales team, frame the result in team terms (output per month, pipeline generated, conversations per week) rather than mentioning "solo founder."
+- NEVER fabricate proof points. Use only what the student has. The numbers must stay accurate. Only the framing changes.
+- NEVER mention details about the proof point client that would break relevance. If the reader runs a recruitment firm with 40 employees, do not tell them about a "solo creative consultant." Tell them about "a consultancy that built £325k pipeline from 5,000 emails."
+- Match the proof to the reader's specific gap. If they are hiring, frame proof as cost vs hiring. If they are scaling, frame it as growth. If they lack tools, frame it as going from manual to systematic.
 
 ### Sequence Structure
 

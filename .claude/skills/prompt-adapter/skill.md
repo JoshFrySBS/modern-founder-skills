@@ -87,6 +87,12 @@ Rewrite the business-specific parts of the base prompt while preserving the prov
 - Buying signals, pain indicators, tool lists (for Signal Detection)
 - Copy variable definitions and examples (for Company Research)
 - Competitor definitions (who counts as a competitor for THEIR offer)
+
+**For any copy-writing prompt (like sam-03-copy-writer), also adapt:**
+- Proof points: re-engineer the student's real proof points for the target avatar. If their proof comes from a solo founder but they are targeting companies with sales teams, frame the same result in team terms. Numbers stay accurate, only the context changes. NEVER fabricate proof.
+- Banned openers: every copy prompt must include a ban on "Saw...", "Noticed...", "Came across..." and any variation. Lead with insight, not discovery.
+- Temporal accuracy rules: mergers as past events, job postings with broader framing, no fabricated timelines.
+- No rigid frameworks: do NOT embed ANGLE/4Ps or similar as structural templates. They create identical-looking emails across leads. Instead instruct the AI to write the best email the data allows, structured however serves the specific lead. The only structural requirements are: opening insight, engineered connection, matched proof, soft CTA.
 - Any field descriptions that reference specific industries or business types
 
 **Adaptation depth by prompt type:**

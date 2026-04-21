@@ -15,7 +15,7 @@ Used by:
 **Does the first line prove you actually looked at their business?**
 
 - 9-10: References a specific achievement, project, or milestone unique to them. Could only be written for this person. ("Great Taste Award, £150K raised, 10+ countries. Fighter Shots clearly has serious product-market fit.")
-- 7-8: References something real but slightly generic. Could apply to a few similar companies. ("Saw you've built a solid wellness brand.")
+- 7-8: References something real but slightly generic. Could apply to a few similar companies. ("A solid wellness brand with national distribution.")
 - 4-6: Generic compliment that could be anyone. ("Looks like you've built something impressive.")
 - 1-3: No personalisation. Template opener. ("I wanted to reach out about your business.")
 
