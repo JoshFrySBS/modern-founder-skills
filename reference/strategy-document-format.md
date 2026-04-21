@@ -14,12 +14,11 @@ Prepared for [Client Name] - [One-Line Positioning]
 
 [Month Year]
 
-| Client | [Client Name] - [Positioning] |
+| Business | [Business Name] - [Positioning] |
 | :---- | :---- |
-| **Strategy Type** | [DFY Client Strategy (Operator-Managed) / Student Strategy (Self-Managed)] |
 | **Campaign Focus** | [Primary Campaign Theme] |
 | **Date Created** | [Month Year] |
-| **Prepared By** | SBS Strategy Call Companion |
+| **Prepared By** | Strategy Call Companion |
 
 # **EXECUTIVE SUMMARY**
 
