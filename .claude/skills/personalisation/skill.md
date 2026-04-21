@@ -125,6 +125,56 @@ Walk through 2-3 example leads and show how the email changes with different var
 
 ---
 
+## Step 4b: Ask How They Want to Use Their Variables
+
+There are two valid ways to use these variables in real campaigns. Ask the student which path they want - or if they want both:
+
+### Path A: Automated via `/campaign-builder`
+
+The default path. Claude writes the full email sequence using the variables inline, then pushes it to Instantly with spintax and spam checks. The student reviews drafts, approves, done.
+
+Best for: students who want the whole pipeline to run end to end with minimal manual copywriting. The skill handles the heavy lifting.
+
+### Path B: Manual - student writes their own copy, sprinkles variables in
+
+Some students want to write their own email sequences by hand (they trust their voice more than AI's, or they want full creative control) but still want the Clay-generated variables to personalise each send at scale.
+
+This absolutely works. The Clay prompt still generates the variables for every lead. When the student pushes the CSV to Instantly, each variable becomes a merge field (`{{copyHook}}`, `{{copyExpertise}}`, etc.). The student writes their email template by hand in Instantly and uses those merge fields wherever they want personalisation to land.
+
+**How to walk them through Path B:**
+
+1. **Tell them which fields will land in Instantly as merge fields.** After the Clay table runs, every variable they designed becomes a column in the CSV. When they upload to Instantly, those columns become merge fields available in any email template.
+
+2. **Give them a hand-written email example with variables sprinkled in.** Something like:
+
+   ```
+   Hi {{firstName}},
+
+   When you're {{copyHook}}, finding the next project tends to fall off
+   the list. Most {{copyBusinessDescriptor}} I speak to hit the same
+   wall around the £200k mark.
+
+   Helped another {{copyClientDescriptor}} expert go from referral-only
+   to three new conversations a week, using cold email they wrote
+   themselves.
+
+   Happy to share what worked if it's useful?
+
+   Josh
+   ```
+
+   The fixed parts are their voice. The `{{variables}}` are where Clay's research slots in per lead.
+
+3. **Remind them of the read-aloud test.** Every variable must sound natural in every sentence it appears in. If any combination sounds forced, the variable or the sentence needs rewriting.
+
+4. **Show them where to write the email.** In Instantly: Campaign > Sequences > Add Email. Type their email template. Type `{{` and Instantly will show them available merge fields from the uploaded lead data.
+
+5. **Spintax still works.** They can wrap alternatives in `{{option1|option2}}` for subject lines, greetings, and CTAs to vary across sends. Mix spintax with Clay variables freely.
+
+**Both paths can run side-by-side.** A student might use `/campaign-builder` for one campaign (scaled, fast) and hand-write another campaign using the same variables (more personal, slower). Same Clay output, different assembly methods.
+
+---
+
 ## Step 5: Update the Company Research Prompt
 
 If the student wants to change or add copy variables:
@@ -167,7 +217,12 @@ Save the student's personalisation decisions to `strategy/personalisation-logic.
 [Show where variables are used, if any]
 ```
 
-Tell the student: "Your personalisation logic is saved. When you run `/campaign-builder`, it will use these variables in the email templates. When you refine your company-research prompt with `/prompt-adapter`, use this document as your reference for what the copy variables should look like."
+Tell the student: "Your personalisation logic is saved.
+
+- **If you want the full pipeline to write copy for you:** run `/campaign-builder` and it will use these variables in the email templates it drafts.
+- **If you are writing your own copy by hand:** open Instantly, create your campaign, write your email template, and use `{{variableName}}` (e.g. `{{copyHook}}`) wherever you want a piece of research to land. Instantly will auto-suggest merge fields once you upload the Clay CSV.
+
+When you refine your company-research prompt with `/prompt-adapter`, use this document as your reference for what the copy variables should look like."
 
 ---
 

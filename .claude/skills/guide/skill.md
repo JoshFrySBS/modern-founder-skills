@@ -54,120 +54,26 @@ When they give you the path or the content:
 
 ### If they don't have a knowledge base
 
-Walk them through building one on the fly. Ask them conversationally, one at a time:
+Run the **Knowledge Base Master Prompt** - an 8-section interview that builds their CLAUDE.md from scratch. This is the same proven prompt from the Claude Code workshop that students consistently give rave reviews.
 
-1. What's your business called, and what do you actually do in one sentence?
-2. Who do you sell to? Role, company size, industry.
-3. What's the core offer - format, price, what they walk away with?
-4. What are your best proof points - hero results, testimonials, any named methodology?
-5. How do you naturally talk to clients - formal, casual, peer-to-peer, advisor?
-6. Are there any words or phrases you would never use? Things that make you cringe?
-7. What makes you different from alternatives?
+**Do this:**
 
-As they answer, build the CLAUDE.md. Keep it concise - every section must be something Claude can actually use when writing campaigns. No filler, no corporate speak.
+1. **Read `reference/knowledge-base-master-prompt.md`** in this repo.
+2. Follow the mega-prompt inside that file to the letter. It contains the full interview methodology - 8 sections, specific questions per section, how to push for specifics, how to run it conversationally, and the exact final output structure.
+3. Start at Section 1 (Identity & Positioning) and work through in order. Ask 1-3 questions at a time, not all at once. After each section, summarise what was captured and let the user correct it before moving on.
+4. Spend extra time on **Section 4 (Brand Voice & Tone)** - the real writing examples they paste are the single most important thing in the whole document. Push for 3-5 real DMs, emails, LinkedIn posts, or proposal excerpts. Don't let them move on with only 1-2.
+5. When all 8 sections are complete, compile everything into a single document using the exact structure in the master prompt file.
+6. Save the final document to `../CLAUDE.md` (the business folder root, parent of modern-founder-skills).
 
-### CLAUDE.md Template Structure
-
-Follow this structure when generating the file:
-
-```markdown
-# [Business Name] - Claude Context File
-
-Loaded every session. Full context on the business, offer, and voice.
-
----
-
-## The Business
-
-**Owner:** [Name]
-**Business:** [Business Name]
-**What we do (one line):** [Plain English positioning]
-
-[2-3 paragraph summary: what the business does, who it serves, why it exists, what makes it different]
-
----
-
-## The Offer
-
-| Offer | Price | Who it's for |
-|-------|-------|--------------|
-| [Offer 1] | [Price] | [Who buys this] |
-| [Offer 2] | [Price] | [Who buys this] |
-
-**Offer details:**
-- [Format, timeline, deliverables, process]
-- [What's included, what's not]
-
----
-
-## ICP
-
-### Primary: [Avatar Name]
-- Role: [Job title(s)]
-- Company size: [Revenue or employee range]
-- Industry: [Specific verticals]
-- Location: [Geography]
-- Core pain: [What hurts enough to make them act]
-- Desired outcome: [What they want to achieve]
-
-### Secondary: [Avatar Name, if applicable]
-[Same structure]
-
----
-
-## Proof Points
-
-- [Hero stat / track record]
-- [Key case study in one line]
-- [Named methodology or framework, if any]
-- [Testimonial with attribution]
-- [Trust signal - referral pattern, longevity]
-
----
-
-## Voice and Tone
-
-- **Register:** [Peer-to-peer / advisor / expert]
-- **Formality:** [Formal / semi-formal / casual]
-- **Key traits:** [3-5 traits drawn from how they naturally talk]
-- **Hedge language:** "guessing", "curious if", "typically", "I imagine"
-- **Contractions always:** isn't, don't, won't - never "is not", "do not"
-
-### Never use
-- Em-dashes (use commas, full stops, or restructure)
-- Hype ("game-changing", "revolutionary", "crushing it")
-- Vendor framing ("we offer...", "our services include...")
-- American-style directness ("let's jump on a call", "I'd love to connect")
-- Emojis in outreach copy
-- [Any client-specific don'ts]
-
----
-
-## Hard Rules for All Copy
-
-- Under 90 words per email, ideally under 80
-- British English throughout
-- Short lines, white space, scannable
-- 3rd-5th grade reading level
-- Soft CTAs only: "Happy to share more if useful", "Does this sound relevant?"
-- Never ask for time or a meeting directly
-
----
-
-## Key Files
-
-| File | Purpose |
-|------|---------|
-| `modern-founder-skills/strategy/[name]_Strategy_Document.md` | Full strategy doc |
-| `modern-founder-skills/strategy/[name]_Tone_Of_Voice_Document.md` | TOV doc - source of truth for all copy |
-| [Any other docs worth loading] | [Purpose] |
-```
+**Time budget:** A proper knowledge base takes 30-60 minutes. Tell them this upfront. It's worth every minute - every skill in the system reads this file.
 
 ### After Saving
 
 Tell them:
 
-> "CLAUDE.md saved at `../CLAUDE.md`. Open it, review it, edit anything that doesn't feel right. This file gets loaded by every skill - the better it is, the better everything else runs.
+> "Your CLAUDE.md is saved at `../CLAUDE.md`. Open it, review it, edit anything that doesn't feel right. This file gets loaded by every skill - the better it is, the better everything else runs.
+>
+> Come back and add to it over time. Every new objection you hear, every great message you send, every new offer - add it. The knowledge base grows with your business.
 >
 > When you are happy with it, you are ready for Phase 1: the strategy doc and Tone of Voice doc. If you already have a strategy doc, drop it into `strategy/`. If not, run `/strategy` next."
 
