@@ -26,18 +26,92 @@ Then help them based on what they say. You can help with anything in the system,
 
 ---
 
-## If They Don't Know Where to Start
+## If They Are Just Starting (Setup Checklist)
 
-Walk them through the setup checklist from README.md. Read it and go through each item conversationally:
+Walk them through the foundation setup conversationally. Everything in Phase 0 of the full workflow needs to be in place before any skill will work properly.
 
 1. **Do you have Antigravity installed?** If not, direct them to antigravity.google/download.
-2. **Do you have your business folder set up?** They should have a main folder named after their business, with a Business Docs subfolder inside it. The modern-founder-skills repo should be cloned inside this business folder.
-3. **Did you run the setup script?** After cloning, they need to run `setup.bat` (Windows) or `bash setup.sh` (Mac) from inside the modern-founder-skills folder. This copies the skills to the parent business folder so they work when opening the business folder in Antigravity.
-4. **Do you have your API keys?** If not, guide them to create accounts at Anthropic and Instantly, then set up `.env` inside the modern-founder-skills folder.
-5. **Do you have your strategy document?** If not, tell them this comes from their strategy call with Josh and should be saved in `modern-founder-skills/strategy/`.
-6. **Do you have your CLAUDE.md?** If not, explain what it is (your business brain -- everything Claude needs to know about your business, offer, voice, and ICP) and that Josh will help them create it. It lives in the business folder root (the parent of modern-founder-skills).
+2. **Do you have your business folder set up?** They should have a main folder named after their business. The modern-founder-skills repo should be cloned inside this business folder.
+3. **Did you run the setup script?** After cloning, run `setup.bat` (Windows) or `bash setup.sh` (Mac) from inside the modern-founder-skills folder. This copies the skills to the parent business folder so they work when opening the business folder in Antigravity.
+4. **Do you have your API keys in `.env`?** If not, guide them: copy `.env.example` to `.env` inside the modern-founder-skills folder, then paste in their Anthropic key (console.anthropic.com) and Instantly key (Instantly > Settings > Integrations > API).
+5. **Do you have your CLAUDE.md?** This is their business brain - covers who they are, their offer, ICP, and voice. It lives in the business folder root (parent of modern-founder-skills). Josh helps build this with them if they don't have one yet.
+6. **Do you have a Clay account** with a blank table ready? Required for Phase 3.
+7. **Do you have an Instantly account** on Growth plan or higher, with at least one warmed sending domain? Required for Phase 5.
 
-Once setup is done, ask: "Are you sourcing leads with a Company Search or a People Search in Clay?" If company search, tell them: "Start with `/prompt-adapter` on prompt 01 -- Company & Founder Research." If people search: "Start with `/prompt-adapter` on prompt 01b -- Company Research for People Search." Everything else builds on that first prompt.
+Once setup is done, point them at the full workflow and ask where they are. Most students with setup complete start at Phase 1 (strategy and TOV).
+
+---
+
+## THE FULL WORKFLOW - Phase by Phase
+
+This is how the system works end to end. When a student asks "where do I start" or "what's next", figure out which phase they're in and walk them through it.
+
+### Phase 1: Strategy & Tone of Voice
+
+The foundation. Every campaign decision traces back to these two documents.
+
+**If they already have a strategy doc** (from a strategy call with Josh, or previous work):
+- Drop it into `strategy/{their-name}_Strategy_Document.md`
+- Skip straight to `/tov`
+
+**If they don't have one:**
+- Run `/strategy` - interactive session covering ICP, offer, pains, outcomes, buying moments, objections, differentiator, TAM, and tone. Scores each section. Saves to `strategy/{name}_Strategy_Document.md`
+- Then run `/tov` - reads the strategy doc and generates `strategy/{name}_Tone_Of_Voice_Document.md`. Student adds their own real writing examples in Section 6 when they sign it off
+
+**Optional:** Run `/share-doc <path>` to view either document as a formatted Google Doc - easier to read, easier to share with a team member. Notion dashboard integration is coming soon.
+
+### Phase 2: Adapt the Base Prompts
+
+Base prompts in `prompts/base/` are generic. They need customising for the student's specific business.
+
+- Run `/prompt-adapter` on each base prompt
+- Start with prompt 01 (Company Search) or 01b (People Search) depending on how they're sourcing leads in Clay
+- Skill asks context questions, rewrites the prompt, then scores it against a rubric. Iterate until the score is decent
+- Adapted prompts save to `prompts/adapted/`
+
+Repeat for each prompt they need: 02 (ICP Fit Score), 03/03b (Intent & Angle Research). Optional variants: 01c (no decision-maker data), 01d (with intent signals).
+
+### Phase 3: Run the Clay Table
+
+This phase happens in Clay, not in Claude Code.
+
+- Paste each adapted prompt into the matching Clay column (Claygent for 01/01b/03/03b, Use AI for 02)
+- Add the filter after prompt 02 (`fit_score >= 50`) to gate out poor fits before the expensive research steps. Saves roughly 27% of credits - see `reference/credit-gating.md`
+- Run the table. Check results on a small batch before running the full list
+- When complete, export the scored leads as CSV
+- Drop the CSV into `clay-exports/`
+
+### Phase 4: Build the Campaign
+
+Back in Claude Code:
+
+- Run `/campaign-builder` on the CSV in `clay-exports/`
+- Skill optionally segments the leads (Priority, Prospect, Pass) if the list is mixed quality
+- Reads the strategy + TOV docs for voice, then writes draft email sequences
+- Student reviews the drafts and approves them, or requests edits - iterate until it's right
+- Once approved, skill pushes to Instantly via API with spintax variants and runs a spam word check
+
+### Phase 5: Review in Instantly & Launch
+
+- Open Instantly, find the new campaign (created as a draft)
+- Review the sequences - does the copy look right rendered in the email preview?
+- Review the leads tab - are all the leads present, with variables populated?
+- Set a low daily sending limit for the first few days (20-30/day) to warm up
+- Click activate
+
+### Phase 6: Analyse & Iterate
+
+After 1-2 weeks of the campaign running:
+
+- Run `/campaign-analyser` - reads Instantly results and diagnoses three things together: lead quality, copy quality, and actual performance
+- Follow the analyser's recommendations. Usually lands in one of these buckets:
+  - **Lead quality weak** -> refine prompts with `/prompt-adapter` (back to Phase 2)
+  - **Copy quality weak** -> re-run `/campaign-builder` with tightened angles (back to Phase 4)
+  - **Personalisation feeling flat** -> `/personalisation` to redesign copy variables
+  - **Targeting off** -> revisit the strategy doc, tighten or expand the ICP (back to Phase 1)
+- Apply changes, keep the campaign running, measure again
+
+The loop is: **Source > Score > Research > Build > Send > Analyse > Improve > Repeat.**
 
 ---
 
@@ -46,6 +120,33 @@ Once setup is done, ask: "Are you sourcing leads with a Company Search or a Peop
 Read the skill file for whatever they are asking about, then walk them through it step by step. Don't dump the whole skill doc on them -- break it into small, clear steps and wait for them to complete each one before moving on.
 
 **Key skill walkthroughs:**
+
+### /strategy
+"This runs a structured strategy session for your business. It walks you through your ICP, offer, pains, outcomes, triggers, objections, differentiator, TAM, and tone - one section at a time - and scores each one as you go. The output is your strategy document, the foundation every campaign builds on."
+
+Walk them through:
+1. What sections it covers (Phase 1 of the full workflow)
+2. How confidence scoring works (sections under 70% get flagged as weak points)
+3. That Sections 10-16 are AI-generated creative suggestions, not prescriptions - to spark ideas, not copy verbatim
+4. That they should run `/tov` right after to generate their Tone of Voice document
+
+### /tov
+"This takes your strategy doc and generates your full Tone of Voice document. It's the source of truth for every email and personalisation line you write going forward."
+
+Walk them through:
+1. Prerequisite: strategy doc must exist in `strategy/` (from `/strategy` or dropped in from a prior session with Josh)
+2. What the 13 sections cover
+3. Section 6 is the most important - they need to paste 3-5 of their own real messages (DMs, emails, proposal excerpts). The skill won't write these for them
+4. Review and edit anything that doesn't sound like them before using it for copy
+5. They can run `/share-doc` next to view it as a Google Doc
+
+### /share-doc
+"This converts any markdown file in your folder into a properly-formatted Google Doc with 'anyone with the link can view' permissions. Useful for reading your strategy or TOV doc in a cleaner format, or sharing with a team member."
+
+Walk them through:
+1. Point it at any markdown file path (e.g. their strategy doc or TOV doc)
+2. It converts the markdown via n8n + Pandoc and returns a shareable Google Doc link
+3. First-time use needs Google credentials set up - see `Automation/share-doc/SETUP.md`
 
 ### /prompt-adapter
 "This adapts the base Clay prompts to YOUR business. Think of it like taking a recipe and swapping the ingredients for what you have in your kitchen. The structure stays the same, but the details become yours."
@@ -155,14 +256,16 @@ Run `git checkout prompts/base/` -- this resets the base prompts back to the ori
 
 ## If They Want to Know What to Do Next
 
-Ask them where they are in the process:
+Ask them where they are in the workflow. Map their answer to a phase:
 
-1. **Just starting?** -> Set up checklist, then `/prompt-adapter` on prompt 01
-2. **Prompts adapted but no campaign yet?** -> Source leads in Clay, run the pipeline, export CSV, then `/campaign-builder`
-3. **Campaign running?** -> Wait 1-2 weeks, then `/campaign-analyser`
-4. **Campaign analysed, ready to improve?** -> Follow the analyser's recommendations. Usually means refining prompts (`/prompt-adapter`) or copy (`/campaign-builder` with updated angles)
-5. **Want better personalisation?** -> `/personalisation` to redesign copy variables
-6. **Everything working, want to scale?** -> Source more leads, create new segments, test new angles
+1. **Just finished setup?** -> Phase 1. If they have a strategy doc, drop it in `strategy/` and run `/tov`. If not, run `/strategy` first, then `/tov`.
+2. **Got strategy + TOV docs?** -> Phase 2. Run `/prompt-adapter` on prompt 01 (or 01b if People Search in Clay).
+3. **Prompts adapted?** -> Phase 3. Paste into Clay, run the table, export CSV to `clay-exports/`.
+4. **CSV ready from Clay?** -> Phase 4. Run `/campaign-builder`. Review and approve drafts before it pushes to Instantly.
+5. **Campaign pushed to Instantly?** -> Phase 5. Review in Instantly, warm up with low daily limit, activate.
+6. **Campaign running?** -> Wait 1-2 weeks, then Phase 6: `/campaign-analyser`.
+7. **Analysed and ready to improve?** -> Follow the analyser's diagnosis. Lead quality weak = back to `/prompt-adapter`. Copy weak = back to `/campaign-builder`. Personalisation flat = `/personalisation`. Targeting off = revisit strategy doc.
+8. **Everything working, want to scale?** -> Source more leads in Clay, create new segments, test new angles.
 
 The cycle is: **Source > Score > Research > Build > Send > Analyse > Improve > Repeat.**
 
