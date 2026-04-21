@@ -20,9 +20,156 @@ Also read the student's CLAUDE.md (parent folder) and strategy doc (strategy/) i
 
 ## How to Respond
 
-When a student runs `/guide`, ask them: "What are you stuck on, or what would you like help with?"
+When a student runs `/guide`, first check: **does `../CLAUDE.md` exist in the business folder root** (the parent of modern-founder-skills)? This is the single most important file in their setup. Without it, every skill works worse.
+
+- **If CLAUDE.md is missing:** do not ignore this. Tell them: "Before we go further, you need a CLAUDE.md - it's your business brain that every skill reads. Want me to help you create one now? It takes about 5 minutes." If yes, jump to the "Create Your CLAUDE.md" section below.
+- **If CLAUDE.md exists:** ask "What are you stuck on, or what would you like help with?"
 
 Then help them based on what they say. You can help with anything in the system, but here are the most common situations:
+
+---
+
+## Create Your CLAUDE.md
+
+CLAUDE.md is the single most important file in the whole system. It is the business context every skill reads before it does anything. Think of it as the briefing document a new contractor would read on day one - who the business is, what it sells, who it sells to, and how it sounds.
+
+It lives at `../CLAUDE.md` - one folder up from modern-founder-skills, in the business folder root.
+
+### If they already have a knowledge base
+
+Most students arrive with a knowledge base, master doc, or business brief somewhere - from a strategy session, a branding exercise, a notion page they exported, or notes they have built up themselves. The KB might be:
+
+- Inside this repo or their business folder
+- On their desktop, in Documents, in a Drive folder
+- In Notion (they can paste the exported markdown)
+
+Ask them: **"Do you have a knowledge base, master doc, or business brief you can point me at? Either paste the content here, or copy the full file path and paste that."**
+
+When they give you the path or the content:
+
+1. Read it carefully - understand who they are, what they sell, who they sell to
+2. Generate a clean, structured CLAUDE.md following the template below
+3. Save to `../CLAUDE.md` (the business folder root, parent of this repo)
+4. Tell them to open the file and review - check anything that doesn't feel right, add anything that's missing
+
+### If they don't have a knowledge base
+
+Walk them through building one on the fly. Ask them conversationally, one at a time:
+
+1. What's your business called, and what do you actually do in one sentence?
+2. Who do you sell to? Role, company size, industry.
+3. What's the core offer - format, price, what they walk away with?
+4. What are your best proof points - hero results, testimonials, any named methodology?
+5. How do you naturally talk to clients - formal, casual, peer-to-peer, advisor?
+6. Are there any words or phrases you would never use? Things that make you cringe?
+7. What makes you different from alternatives?
+
+As they answer, build the CLAUDE.md. Keep it concise - every section must be something Claude can actually use when writing campaigns. No filler, no corporate speak.
+
+### CLAUDE.md Template Structure
+
+Follow this structure when generating the file:
+
+```markdown
+# [Business Name] - Claude Context File
+
+Loaded every session. Full context on the business, offer, and voice.
+
+---
+
+## The Business
+
+**Owner:** [Name]
+**Business:** [Business Name]
+**What we do (one line):** [Plain English positioning]
+
+[2-3 paragraph summary: what the business does, who it serves, why it exists, what makes it different]
+
+---
+
+## The Offer
+
+| Offer | Price | Who it's for |
+|-------|-------|--------------|
+| [Offer 1] | [Price] | [Who buys this] |
+| [Offer 2] | [Price] | [Who buys this] |
+
+**Offer details:**
+- [Format, timeline, deliverables, process]
+- [What's included, what's not]
+
+---
+
+## ICP
+
+### Primary: [Avatar Name]
+- Role: [Job title(s)]
+- Company size: [Revenue or employee range]
+- Industry: [Specific verticals]
+- Location: [Geography]
+- Core pain: [What hurts enough to make them act]
+- Desired outcome: [What they want to achieve]
+
+### Secondary: [Avatar Name, if applicable]
+[Same structure]
+
+---
+
+## Proof Points
+
+- [Hero stat / track record]
+- [Key case study in one line]
+- [Named methodology or framework, if any]
+- [Testimonial with attribution]
+- [Trust signal - referral pattern, longevity]
+
+---
+
+## Voice and Tone
+
+- **Register:** [Peer-to-peer / advisor / expert]
+- **Formality:** [Formal / semi-formal / casual]
+- **Key traits:** [3-5 traits drawn from how they naturally talk]
+- **Hedge language:** "guessing", "curious if", "typically", "I imagine"
+- **Contractions always:** isn't, don't, won't - never "is not", "do not"
+
+### Never use
+- Em-dashes (use commas, full stops, or restructure)
+- Hype ("game-changing", "revolutionary", "crushing it")
+- Vendor framing ("we offer...", "our services include...")
+- American-style directness ("let's jump on a call", "I'd love to connect")
+- Emojis in outreach copy
+- [Any client-specific don'ts]
+
+---
+
+## Hard Rules for All Copy
+
+- Under 90 words per email, ideally under 80
+- British English throughout
+- Short lines, white space, scannable
+- 3rd-5th grade reading level
+- Soft CTAs only: "Happy to share more if useful", "Does this sound relevant?"
+- Never ask for time or a meeting directly
+
+---
+
+## Key Files
+
+| File | Purpose |
+|------|---------|
+| `modern-founder-skills/strategy/[name]_Strategy_Document.md` | Full strategy doc |
+| `modern-founder-skills/strategy/[name]_Tone_Of_Voice_Document.md` | TOV doc - source of truth for all copy |
+| [Any other docs worth loading] | [Purpose] |
+```
+
+### After Saving
+
+Tell them:
+
+> "CLAUDE.md saved at `../CLAUDE.md`. Open it, review it, edit anything that doesn't feel right. This file gets loaded by every skill - the better it is, the better everything else runs.
+>
+> When you are happy with it, you are ready for Phase 1: the strategy doc and Tone of Voice doc. If you already have a strategy doc, drop it into `strategy/`. If not, run `/strategy` next."
 
 ---
 
@@ -34,7 +181,7 @@ Walk them through the foundation setup conversationally. Everything in Phase 0 o
 2. **Do you have your business folder set up?** They should have a main folder named after their business. The modern-founder-skills repo should be cloned inside this business folder.
 3. **Did you run the setup script?** After cloning, run `setup.bat` (Windows) or `bash setup.sh` (Mac) from inside the modern-founder-skills folder. This copies the skills to the parent business folder so they work when opening the business folder in Antigravity.
 4. **Do you have your API keys in `.env`?** If not, guide them: copy `.env.example` to `.env` inside the modern-founder-skills folder, then paste in their Anthropic key (console.anthropic.com) and Instantly key (Instantly > Settings > Integrations > API).
-5. **Do you have your CLAUDE.md?** This is their business brain - covers who they are, their offer, ICP, and voice. It lives in the business folder root (parent of modern-founder-skills). Josh helps build this with them if they don't have one yet.
+5. **Do you have your CLAUDE.md?** This is their business brain - covers who they are, their offer, ICP, and voice. It lives at `../CLAUDE.md` (the business folder root, parent of modern-founder-skills). If they don't have one, walk them through the "Create Your CLAUDE.md" section above - you'll either read their existing knowledge base (they paste it or give you a file path) or build one with them from scratch.
 6. **Do you have a Clay account** with a blank table ready? Required for Phase 3.
 7. **Do you have an Instantly account** on Growth plan or higher, with at least one warmed sending domain? Required for Phase 5.
 
