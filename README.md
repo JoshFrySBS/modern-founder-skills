@@ -4,55 +4,34 @@ Your AI-powered campaign system. 3 Clay prompts that find, score, and research y
 
 ---
 
-## Installation
+## Installation and Updates
 
-### 1. Create Your Business Folder
+Full instructions for first-time setup, updating, and troubleshooting: [Modern_Founder_CC_Setup_And_Update.md](Modern_Founder_CC_Setup_And_Update.md).
 
-Create a folder named after your business (e.g. `MyBusiness`) in your Documents. Inside it, create a `Business Docs` folder for your knowledge base and other files.
+### Quick Reference
 
-### 2. Install Git
-
-**Windows:** Download from [git-scm.com/download/win](https://git-scm.com/download/win) and run the installer. Accept all defaults.
-
-**Mac:** Open Terminal and run `xcode-select --install`, then follow the prompts.
-
-### 3. Clone the Repository
-
-Open your business folder in Antigravity (File > Open Folder), then open the terminal (Terminal > New Terminal) and clone:
+**First-time clone** (from your business folder root):
 ```
 git clone https://github.com/JoshFrySBS/modern-founder-skills.git
+cd modern-founder-skills && bash setup.sh
+```
+(Windows: `setup.bat` instead of `bash setup.sh`)
+
+**Update to latest** (from your business folder root):
+
+Mac / Linux:
+```
+cd modern-founder-skills && git pull && bash setup.sh
 ```
 
-No GitHub account needed. The repo is public.
-
-### 4. Install Your Skills
-
-Open Claude Code and ask it:
+Windows:
 ```
-Copy the skills from modern-founder-skills into my .claude folder
+cd modern-founder-skills && git pull && setup.bat
 ```
 
-Your folder will look like this:
-```
-MyBusiness/
-  .claude/skills/           <-- Claude copies these here for you
-  CLAUDE.md                 <-- your business brain (Josh helps you create this)
-  Business Docs/
-  modern-founder-skills/    <-- the repo lives here
-```
+Then fully quit and reopen Antigravity.
 
-### 5. Get Updates
-
-When Josh pushes updates (new prompts, improved skills, bug fixes):
-```
-cd modern-founder-skills
-git pull
-```
-
-Then ask Claude to copy the updated skills:
-```
-Copy the updated skills from modern-founder-skills into my .claude folder
-```
+**Do not rename the `modern-founder-skills` folder.** Every command assumes this name. See the setup guide for details and troubleshooting.
 
 ---
 
