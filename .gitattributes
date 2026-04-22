@@ -1,0 +1,8 @@
+# Ensure shell scripts keep Unix line endings even when cloned on Windows.
+# Without this, CRLF conversion breaks the shebang on Mac/Linux.
+setup.sh text eol=lf
+*.sh text eol=lf
+
+# Keep Windows batch scripts as CRLF.
+setup.bat text eol=crlf
+*.bat text eol=crlf
