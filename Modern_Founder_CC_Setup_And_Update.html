@@ -369,6 +369,28 @@
     ├── reference/
     └── rules/</div>
     <div class="tip" style="margin-top: 20px;">You open <span class="highlight">MyBusiness/</span> in Antigravity. The skills and your CLAUDE.md live at that root. The repo sits alongside them.</div>
+    <div class="tip" style="margin-top: 12px; background: #1a2a1a; border: 1px solid #006644; color: #34d399;">Don't have a CLAUDE.md yet? That's fine -- we'll build it together in Step 7 using the Knowledge Base master prompt. You don't need one before you start.</div>
+  </div>
+
+  <!-- 6a. First-time setup divider -->
+  <div class="slide bg-accent slide-transition">
+    <div class="tag">First-Time Setup</div>
+    <h2>Setting Up For The First Time</h2>
+    <p class="subtitle" style="margin-top: 16px;">The next 7 slides walk you through installation from scratch.</p>
+    <div style="margin-top: 40px; max-width: 720px;">
+      <div class="card" style="background: #2A2A2A; border: 1px solid #2A2A2A; color: #F5F5F5; padding: 24px 32px; text-align: left;">
+        <h3 style="color: #DD7454; margin-bottom: 14px;">Follow this path if:</h3>
+        <ul style="margin-top: 8px;">
+          <li style="color: #D0D0D0;">You've never installed Modern Founder Skills before</li>
+          <li style="color: #D0D0D0;">You're on a new machine and starting fresh</li>
+          <li style="color: #D0D0D0;">You're setting up a second business folder</li>
+        </ul>
+        <h3 style="color: #DD7454; margin-top: 24px; margin-bottom: 14px;">Skip ahead if:</h3>
+        <ul style="margin-top: 8px;">
+          <li style="color: #D0D0D0;">You're already set up and just want the latest updates -- use the one-line update command on slide 3, or jump to the Troubleshooting section if something's broken</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <!-- 6. Step 1: Prerequisites -->
@@ -616,7 +638,7 @@ ANTHROPIC_API_KEY=paste_your_key_here</div>
 
 </div>
 
-<div class="counter" id="counter">1 / 20</div>
+<div class="counter" id="counter">1 / 21</div>
 <div class="brand-footer">Side by Side</div>
 <div class="nav-hint">arrow keys or click to navigate</div>
 
@@ -624,6 +646,9 @@ ANTHROPIC_API_KEY=paste_your_key_here</div>
   const slides = document.querySelectorAll('.slide');
   const counter = document.getElementById('counter');
   let current = 0;
+
+  // Initialise counter so it always reflects actual slide count on load
+  counter.textContent = `1 / ${slides.length}`;
 
   function showSlide(n) {
     slides[current].classList.remove('active');
