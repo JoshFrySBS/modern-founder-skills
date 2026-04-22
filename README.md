@@ -6,7 +6,7 @@ Your AI-powered campaign system. 3 Clay prompts that find, score, and research y
 
 ## Installation and Updates
 
-Full instructions for first-time setup, updating, and troubleshooting: [Modern_Founder_CC_Setup_And_Update.md](Modern_Founder_CC_Setup_And_Update.md).
+Full slide-deck walkthrough for first-time setup, updating, and troubleshooting: [Modern_Founder_CC_Setup_And_Update.html](Modern_Founder_CC_Setup_And_Update.html). Open it in any browser. Arrow keys or click to navigate.
 
 ### Quick Reference
 
